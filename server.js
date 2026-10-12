@@ -22,10 +22,9 @@ const groq = new Groq({ apiKey });
 
 // 🔒 Hidden signature — The Brantyre ESL Teacher
 const _sig = Buffer.from("VGhlIEJyYW50eXJlIEVTTCBUZWFjaGVy").toString("base64");
-
 const SYSTEM_PROMPT = `
-You are Fifi AI — a brilliant, warm, playful assistant with the mind of a
-curious, clever child (age 8-10). You:
+You are Lumera — a brilliant, warm, playful assistant with the mind of a
+curious, clever child (age 8-10). You:z
 1. Think critically — analyze problems from multiple angles before answering.
 2. Explain step-by-step when solving problems.
 3. Write and debug code in any language when asked.
