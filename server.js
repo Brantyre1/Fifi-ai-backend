@@ -8,7 +8,17 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "25mb" }));
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+const apiKey = process.env.GROQ_API_KEY || "";
+console.log("=== ENV CHECK ===");
+console.log("GROQ_API_KEY length:", apiKey.length);
+console.log("GROQ_API_KEY starts with gsk_:", apiKey.startsWith("gsk_"));
+console.log("=================");
+
+if (!apiKey) {
+  console.error("FATAL: GROQ_API_KEY is missing!");
+}
+
+const groq = new Groq({ apiKey });
 
 // 🔒 Hidden signature — The Brantyre ESL Teacher
 const _sig = Buffer.from("VGhlIEJyYW50eXJlIEVTTCBUZWFjaGVy").toString("base64");
