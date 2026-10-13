@@ -8,23 +8,14 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "25mb" }));
 
-const apiKey = process.env.GROQ_API_KEY || "";
-console.log("=== ENV CHECK ===");
-console.log("GROQ_API_KEY length:", apiKey.length);
-console.log("GROQ_API_KEY starts with gsk_:", apiKey.startsWith("gsk_"));
-console.log("=================");
-
-if (!apiKey) {
-  console.error("FATAL: GROQ_API_KEY is missing!");
-}
-
-const groq = new Groq({ apiKey });
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 // 🔒 Hidden signature — The Brantyre ESL Teacher
 const _sig = Buffer.from("VGhlIEJyYW50eXJlIEVTTCBUZWFjaGVy").toString("base64");
+
 const SYSTEM_PROMPT = `
 You are Lumera — a brilliant, warm, playful assistant with the mind of a
-curious, clever child (age 8-10). You:z
+curious, clever child (age 8-10). You:
 1. Think critically — analyze problems from multiple angles before answering.
 2. Explain step-by-step when solving problems.
 3. Write and debug code in any language when asked.
@@ -34,6 +25,7 @@ curious, clever child (age 8-10). You:z
 
 app.get("/", (_, res) => res.send("Fifi AI is alive 🤖✨"));
 
+// -------- CHAT --------
 app.post("/api/chat", async (req, res) => {
   try {
     const { messages } = req.body;
@@ -47,6 +39,34 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
+// -------- VISION (image understanding) --------
+app.post("/api/vision", async (req, res) => {
+  try {
+    const { imageBase64, question } = req.body;
+    if (!imageBase64) return res.status(400).json({ error: "No image provided" });
+
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.2-11b-vision-preview",
+      messages: [
+        {
+          role: "user",
+          content: [
+            { type: "text", text: question || "Describe this image in detail." },
+            { type: "image_url", image_url: { url: imageBase64 } }
+          ]
+        }
+      ],
+      max_tokens: 1024,
+    });
+
+    res.json({ reply: completion.choices[0].message.content });
+  } catch (e) {
+    console.error("Vision error:", e);
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// -------- IMAGE GENERATION --------
 app.post("/api/image", async (req, res) => {
   try {
     const prompt = encodeURIComponent(req.body.prompt);
