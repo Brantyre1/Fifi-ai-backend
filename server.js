@@ -46,7 +46,7 @@ app.post("/api/vision", async (req, res) => {
     if (!imageBase64) return res.status(400).json({ error: "No image provided" });
 
     const completion = await groq.chat.completions.create({
-      model: "llama-3.2-11b-vision-preview",
+      model: "qwen/qwen3.8-27b",
       messages: [
         {
           role: "user",
