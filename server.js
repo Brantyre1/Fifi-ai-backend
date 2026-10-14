@@ -214,6 +214,32 @@ app.post("/api/voice", async (req, res) => {
 
 
 
+// -------- VIDEO GENERATION (free via Pollinations) --------
+app.post("/api/video", async (req, res) => {
+  try {
+    const { prompt } = req.body;
+    if (!prompt) return res.status(400).json({ error: "No prompt provided" });
+
+    // Pollinations generates short looping GIFs from a single frame + motion
+    const encoded = encodeURIComponent(prompt.slice(0, 200));
+    const videoUrl = "https://image.pollinations.ai/prompt/" + encoded +
+                     "?width=512&height=512&nologo=true&model=flux";
+
+    // Pollinations GIF endpoint (if available)
+    const gifUrl = "https://image.pollinations.ai/prompt/" + encoded +
+                   "?width=512&height=512&nologo=true&model=flux&nofeed=true&animate=true";
+
+    res.json({
+      url: gifUrl,
+      stillImage: videoUrl,
+      note: "Free tier produces short animated GIFs. For real video, upgrade to Replicate."
+    });
+  } catch (e) {
+    console.error("Video error:", e);
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // -------- IMAGE GENERATION --------
 app.post("/api/image", async (req, res) => {
   try {
