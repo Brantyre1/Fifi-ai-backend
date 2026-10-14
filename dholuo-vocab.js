@@ -1,196 +1,279 @@
-// ============ DHOLUO VOCABULARY (verified) ============
-export const DHOLUO_VOCAB = `
+// ---------- DHOLUO VOCABULARY (verified) ----------
+const DHOLUO_VOCAB = `
 
-You are now replying in DHOLUO. Follow these rules strictly:
+You are replying in Dholuo (Luo language of Kenya). Use ONLY the verified vocabulary below. Do NOT invent words. If a word you need is not listed, respond with:
+"I am not certain of the correct Dholuo for this. Here is what I know in English: [answer]."
 
-1. Use ONLY the Dholuo words in this vocabulary list. Do NOT invent words.
-2. If a word you need is missing, say in English: "I am not certain of the correct Dholuo for this."
-3. Use proper Dholuo grammar — verbs come before pronouns and tense markers.
-4. Never mix Swahili or English into Dholuo sentences unless the word is missing.
-5. Keep replies short and clear — 1 to 3 sentences for most answers.
+VERIFIED DHOLUO VOCABULARY:
 
-=== VERIFIED DHOLUO VOCABULARY ===
+=== GREETINGS ===
+Misawa / Amosi = Hello
+Idhi nade? = How are you?
+Adhi maber = I am fine
+To in? = And you?
+Iriyo nade? = How was your day?
+Ber = Good / fine
+Ber ahinya = Very good
+Oyaure / Oyaore = Good morning
+Oyaore ahinya = Good morning back
+Oimore / Oyimore = Good evening
+Osaore = Good afternoon
+Oriti = Goodbye
+Abiro neni bang'e = I'll see you later
+Karibu = Welcome
+Onge wach = Okay / no worries
+Nango = What's up
+Anyalo donjo? = May I come in?
 
-GREETINGS:
-- Misawa / Amosi = Hello
-- Idhi nade? = How are you?
-- Adhi maber = I'm fine
-- To in? = And you?
-- Oyaure / Oyaore = Good morning
-- Oimore / Oyimore = Good evening
-- Osaore = Good afternoon
-- Ber = Good / Fine
-- Ber ahinya = Very good
-- Erokamano = Thank you
-- Erokamano ahinya = Thank you very much
-- Oriti = Goodbye
-- Abiro neni bang'e = See you later
-- Karibu = Welcome
-- Onge wach = No worries / Okay
-- Koro? = Hi (informal)
+=== INTRODUCTIONS ===
+Nyingi ng'a? = What is your name?
+Nyinga... = My name is...
+Iluonga ni... = I call myself...
+An = I / me
+In = You
+En = He / she / it
+Wan = We
+Un = You (plural)
+Gin = They
+Amor ka neni = Pleased to meet you
+Ia kanye? = Where are you from?
+Aa America = I'm from America
+An nyathi skul = I am a student
+An daktari = I am a doctor
+An sista = I am a nurse
+Atiyo = I work
 
-PRONOUNS:
-- An = I / Me
-- In = You (singular)
-- En = He / She / It
-- Wan = We / Us
-- Un = You (plural)
-- Gin = They / Them
-- -a = my
-- Mari = Yours
-- Mara = Mine
+=== ETIQUETTE ===
+Ero kamano = Thank you
+Ero kamano ahinya = Thank you very much
+Mos / Mos ahinya = Sorry
+Kiyie = Please
+Konya gi... = Help me with...
+Miya = Give me
+Adwaro = I want
+Ahero = I like / I love
+Amor = I am happy
+Ayie = I agree / yes
+Adagi = I refuse / no
+Machiegni = You're welcome
 
-FAMILY & PEOPLE:
-- Wuon = Father
-- Min = Mother
-- Nyathi = Child
-- Nyathina = My child
-- Nyithindo = Children
-- Owadwa = Brother
-- Nyamin = Sister
-- Osiep = Friend
-- Osiepa = My friend
-- Jaoda = My spouse
-- Chuo / Dichuo = Man / Men
-- Dhako = Woman
-- Mon = Women
-- Nyako = Girl
-- Wuoyi = Boy
-- Jatelo = Elder (respectful)
-- Mzee = Older man (respectful)
-- Japuonj = Teacher
-- Daktari = Doctor
-- Sista = Nurse
-- Jatuo = Patient
+=== COMMON PHRASES ===
+Ee = Yes
+Ooyo / Uh-uh = No
+Ok ang'eyo / Akia = I don't know
+Ok awinji = I don't understand you
+Iwacho nade gi dholuo? = How do you say in Luo?
+Nwona ka iyie = Can you repeat that?
+Nwona kanyo mos = Repeat slowly
+Adhi dala = I'm going home
+Anindo = I'm sleeping
+Kik iluor = Don't worry
+Aol = I'm tired
+Alal = I'm lost
+Kwe = Peace
+Hera = Love
+Tich = Work
+Oromo = Enough
+Tek = Strong / hard
+Rach = Bad
+Tuo = Sick
+Atuo = I'm sick
+We! = Stop!
+Nitie = There is
+Mano = That
+Mano ng'a? = Who is that?
+Mano ang'o? = What is that?
 
-NUMBERS:
-- Achiel = One
-- Ariyo = Two
-- Adek = Three
-- Ang'wen = Four
-- Abich = Five
-- Auchiel = Six
-- Abiriyo = Seven
-- Aboro = Eight
-- Ochiko = Nine
-- Apar = Ten
-- Apar gi achiel = Eleven
-- Piero ariyo = Twenty
-- Piero adek = Thirty
-- Mia achiel = One hundred
+=== PRONOUNS ===
+An = I / me
+In = You
+En = He / she / it
+Wan = We / us
+Un = You (plural)
+Gin = They
+Mara = Mine
+Mari = Yours
+Osiepa = My friend
+Osiep = Friend
+Jaoda = My spouse
+Nyathina = My child
+Wat = Relative
 
-COMMON VERBS:
-- Bi = Come
-- Dhi = Go
-- Neno / Ne = See
-- Wacho = Say / Speak
-- Winjo = Hear / Understand
-- Kony / Konya = Help / Help me
-- Chiemo / Chamo = Eat
-- Madho = Drink
-- Nindo / Nindi = Sleep
-- Bedo / Bedi = Sit / Stay
-- Chung = Stand
-- Somo = Read / Study
-- Ndiko = Write
-- Miya = Give me
-- Adwaro = I want
-- Ahero = I like
-- Amor = I am happy
-- Awinjo = I feel
-- Atuo = I am sick
-- Alal = I am lost
-- Ok ang'eyo = I don't know
-- Ok awinji = I don't understand
-- Aol = I am tired
+=== FAMILY & RELATIONSHIPS ===
+Wuon = Father
+Min = Mother
+Wuod = Son
+Nyar = Daughter
+Owadwa = Brother
+Nyamin = Sister
+Nyathi = Child
+Nyithindo = Children
+Chuo / Dichuo = Man / men
+Dhako / Mon = Woman / women
+Nyako / Nyiri = Girl / girls
+Wuoyi / Yuowoyi = Boy / boys
+Jatelo = Elder
+Mzee = Respected elder man
+Daktari = Doctor
+Jathieth = Healer
+Laktar = Doctor
+Sista = Nurse
 
-COMMON WORDS:
-- Ot = House / Home
-- Dala = Home
-- Dalana = My home
-- Chiemo = Food
-- Pi / Pii = Water
-- Chak = Milk
-- Ring'o = Meat
-- Rech = Fish
-- Alot = Vegetables
-- Olemo = Fruit
-- Rabolo = Banana
-- Oduma = Maize / Corn
-- Kuon = Ugali
-- Chumbi = Salt
-- Chai = Tea
-- Kahawa = Coffee
-- Soda = Soda
-- Mkati = Bread
-- Mchele = Rice
-- Nam = Lake
-- Aora = River
-- Piny = World / Earth / Ground
-- Chieng' = Sun / Day
-- Dwe = Moon / Month
-- Koth = Rain
-- Yamo = Wind
-- Ndara = Road
-- Puodho = Garden
-- Skul = School
-- Kanisa = Church
-- Chiro = Market
-- Duka = Shop
-- Ospital = Hospital
-- Baf = Bathroom
-- Luok = Shower
-- Jikon = Kitchen
+=== NUMBERS ===
+Achiel = One (1)
+Ariyo = Two (2)
+Adek = Three (3)
+Ang'wen = Four (4)
+Abich = Five (5)
+Auchiel = Six (6)
+Abiriyo = Seven (7)
+Aboro = Eight (8)
+Abong' / Ochiko = Nine (9)
+Apar = Ten (10)
+Apar gi achiel = Eleven (11)
+Apar gi ariyo = Twelve (12)
+Piero ariyo = Twenty (20)
+Piero adek = Thirty (30)
+Piero ang'wen = Forty (40)
+Piero abich = Fifty (50)
+Piero auchiel = Sixty (60)
+Piero abiriyo = Seventy (70)
+Piero aboro = Eighty (80)
+Piero ochiko = Ninety (90)
+Mia achiel = One hundred (100)
 
-COMMON PHRASES:
-- Nyingi ng'a? = What is your name?
-- Nyinga en ... = My name is ...
-- Ia kanye? = Where are you from?
-- Aa Kenya = I'm from Kenya
-- Inyalo konya? = Can you help me?
-- Iwacho nade gi dholuo? = How do you say it in Dholuo?
-- Nwona kanyo mos = Say it again slowly
-- Riyo ohinga = I am thirsty
-- Adenyо / Adeny = I am hungry
-- Adhi dala = I am going home
-- Anindo = I am sleeping
-- Sani = Now
-- Bang'e = Later
-- Kawuono = Today
-- Kiny = Tomorrow
-- Nyoro = Yesterday
-- Okinyi = Morning
-- Godchieng = Afternoon
-- Godhiambo = Evening
-- Gotieno = Night
-- Kwe = Peace
-- Hera = Love
-- Tich = Work
-- Tek = Hard / Strong
-- Yot = Easy
-- Rach = Bad
-- Mos = Slowly / Sorry
-- Ngima = Life
-- Tuo = Sickness
-- Tho = Death
-- Ler = Clean
-- Olii = Dirty
-- Liet = Hot
-- Ng'ich = Cold
-- Ng'a = Who
-- Ang'o = What
-- Kanye = Where
-- Nang'o = Why
-- Nadi = How
-- Saa mane = When
-- Ee / Ayie = Yes
-- Ooyo / Adagi = No
-- Samoro = Maybe
+=== FOOD & DRINK ===
+Chiemo = Food
+Pi = Water
+Pi modho = Drinking water
+Chak = Milk
+Ring'o = Meat
+Rech = Fish
+Alot = Vegetables
+Olemo = Fruit
+Rabolo = Banana
+Dhiang = Cow
+Gweno = Chicken
+Oduma / Bando = Maize / corn
+Kuon = Ugali
+Chumbi = Salt
+Mchele = Rice
+Kahawa = Coffee
+Chai = Tea
+Soda mangich = Cold soda
+Kongo = Local beer
+Chiemb otieno = Dinner
+Chiemb sabirio = Lunch
+Adenyo = I am hungry
+Riyo ohinga = I am thirsty
+Adwaro chiemo = I want food
 
-PRONUNCIATION NOTES:
-- "ng'" is a nasal sound like in "sing"
-- "dh" is like "th" in "the"
-- "ch" is like "ch" in "church"
-- "ny" is like "ny" in "canyon"
-=== END OF DHOLUO VOCABULARY ===
+=== LOCATIONS ===
+Dala = Home
+Ot = House / home
+Skul = School
+Chiro = Market
+Duka = Shop / store
+Kanisa = Church
+Msikiti = Mosque
+Ospital / Ospitaal = Hospital
+Puodho = Garden
+Ndara = Road
+Nam = Lake
+Dho nam = Beach / lakeside
+Baf = Bathroom
+Jikon = Kitchen
+
+=== TIME ===
+Kawuono = Today
+Kiny = Tomorrow
+Nyoro = Yesterday
+Sani = Now
+Bang'e = Later / afterwards
+Okinyi = Morning
+Godchieng = Afternoon
+Godhiambo = Evening
+Gotieno = Night
+Saa adi? = What time is it?
+
+=== COMMON VERBS ===
+Dhi = Go
+Bi = Come
+Neno = See
+Wacho = Say / speak
+Winjo = Hear / listen
+Kony = Help
+Chiemo = Eat
+Madho = Drink
+Nindo = Sleep
+Kwe = Rest
+Somo = Read / study
+Ndiko = Write
+Chung = Stand
+Bedo = Sit
+Nyal = Can / able
+
+=== MEDICAL ===
+Tuo = Sickness
+Yaath = Medicine / drugs
+Sindano = Needle
+Remo = Blood
+Chango = Healing
+Tho = Death
+Ler = Clean
+Olii = Dirty
+Wiya bara = I have a headache
+Iya rem = I have a stomachache
+Awinjo marach = I feel bad
+Awinjo lit = I am in pain
+Awinjo liet = I feel hot
+Awinjo koyo = I feel cold
+Awinjo ka atuo = I feel sick
+Adiewo = I have diarrhea
+Ahinyora = I'm injured
+Awang' = I got burnt
+
+=== CLASSROOM ===
+Japuonj = Teacher
+Puonjruok = Practice / learning
+Bed piny = Sit down
+Chung malo = Stand up
+Ling = Keep quiet
+Ne = Look
+Bi ka = Come here
+Kalam = Pen / pencil
+Somo = To read
+Dhi oko = Go outside
+Oromo = Enough
+
+=== NATURE ===
+Chieng' = Sun / day
+Dwe = Moon / month
+Koth = Rain
+Yamo = Wind
+Piny = World / earth
+Piny liet = It's hot
+Piny ng'ich = It's cold
+
+=== COMMON DHOLUO NAMES ===
+Otieno / Atieno = Born at night
+Ochieng / Achieng = Born during the day
+Omondi / Amondi = Born in the morning
+Ouma / Auma = Born facing forward
+Odongo / Adongo = Second twin
+Apiyo / Opiyo = Firstborn twin
+Awuor / Owuor = Born at night
+Akech / Okech = Born during famine
+Akeyo / Okeyo = Born during harvest
+
+=== USAGE RULES ===
+1. Reply ONLY in Dholuo.
+2. Use ONLY words from this list.
+3. If a word is missing, say: "Ok ang'eyo Dholuo maber ne wachni. Ma en gima ang'eyo e Kisungu: [answer in English]."
+4. Use simple, correct grammar.
+5. Never invent Dholuo words.
+6. Reply warmly and naturally.
 `;
+// ---------- END DHOLUO VOCABULARY ----------
+
+module.exports = { DHOLUO_VOCAB };
