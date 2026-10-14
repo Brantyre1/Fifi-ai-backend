@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import Groq from "groq-sdk";
-import { DHOLUO_VOCAB } from "./dholuo-vocab.js";
 
 dotenv.config();
 const app = express();
@@ -165,129 +164,6 @@ const LANGUAGE_NAMES = {
   hi: 'Hindi'
 };
 
-// ---------- DHOLUO VOCABULARY ----------
-const DHOLUO_VOCAB = `
-
-When replying in Dholuo, you MUST use the verified words from this list. Do NOT invent new words.
-
-If a word you need is not in this list, respond with:
-"I am not certain of the correct Dholuo for this. Here is what I know in English: [answer]."
-Never make up Dholuo words.
-
-VERIFIED DHOLUO VOCABULARY:
-
-Greetings:
-- Misawa = Hello / Good
-- Idhi nade? = How are you?
-- Adhi maber = I am fine
-- Ber = Good / Well
-- Erokamano = Thank you
-- Oriti = Goodbye
-- Oyawore = Good morning
-- Oimore = Good afternoon
-- Oodhi = Good evening
-
-Pronouns:
-- An = I / Me
-- In = You (singular)
-- En = He / She / It
-- Wan = We / Us
-- Un = You (plural)
-- Gin = They / Them
-
-Family:
-- Wuon = Father
-- Min = Mother
-- Nyathi = Child
-- Nyithindo = Children
-- Omere = Brother
-- Nyamin = Sister
-- Kwaro = Grandfather
-- Dayo = Grandmother
-
-Common words:
-- Ot = House / Home
-- Chiemo = Food
-- Pi = Water
-- Kendo = Again / Also
-- Koro = Now
-- Kiny = Tomorrow
-- Nyoro = Yesterday
-- Kanye = Where
-- Ang'o = What
-- Ng'a = Who
-- Nyingi = Your name
-- Nyinga = My name
-
-Common verbs:
-- Bi = Come
-- Dhi = Go
-- Neno = See
-- Wacho = Say / Speak
-- Kony = Help
-- Chiemo = Eat
-- Modho = Drink
-- Nindo = Sleep
-- Kwe = Rest
-- Winjo = Hear / Listen
-
-Numbers:
-- Achiel = One
-- Ariyo = Two
-- Adek = Three
-- Ang'wen = Four
-- Abich = Five
-- Auchiel = Six
-- Abiriyo = Seven
-- Aboro = Eight
-- Abong' = Nine
-- Apar = Ten
-
-Common phrases:
-- An gi kwe = I am fine
-- Inyalo konya? = Can you help me?
-- Ok ang'eyo = I don't know
-- Awinjo maber = I understand
-- Nyisa kendo = Tell me more
-- In kanye? = Where are you?
-- An gi chuny = I am happy
-
-Body parts:
-- Dhogi = Head
-- Wange = Eyes
-- It = Ear
-- Um = Nose
-- Dhok = Mouth
-- Lwet = Hands
-- Tielo = Legs
-- Chuny = Heart
-
-Nature:
-- Piny = World / Earth
-- Chieng' = Sun / Day
-- Dwe = Moon / Month
-- Koth = Rain
-- Yamo = Wind
-- Lwanda = Rock
-- Liel = Grave
-- Puodho = Garden
-
-Common responses:
-- Ee = Yes
-- Ooyo = No
-- Ber ahinya = Very good
-- Ok ber = Not good
-- Nyalo bet = Maybe
-
-USAGE RULES:
-1. Only use words from the list above.
-2. If you need a word not listed, admit you don't know it in Dholuo.
-3. Use simple, correct sentence structure.
-4. Maintain the grammar style shown in the list.
-5. Never invent Dholuo words or produce gibberish.
-`;
-// ---------- END DHOLUO VOCABULARY ----------
-
 app.get("/", (_, res) => res.send("Fifi AI is alive 🤖✨"));
 
 // -------- CHAT --------
@@ -307,8 +183,8 @@ app.post("/api/chat", async (req, res) => {
     if (lang !== 'en') {
       systemPrompt += "\n\nLANGUAGE REQUIREMENT: Reply ONLY in " + langName + ". Every word must be in " + langName + ".";
       if (lang === 'luo') {
-      systemPrompt += DHOLUO_VOCAB;
-    }
+        systemPrompt += "\n\nHONESTY RULE FOR DHOLUO: You have limited training data on Dholuo. If you are not certain of the correct Dholuo word or phrase, respond with: 'I am not certain of the correct Dholuo for this. Here is what I know: [limited answer in English].' Do NOT invent Dholuo words or produce gibberish. It is better to admit uncertainty than to make up words.";
+      }
     }
     const completion = await groq.chat.completions.create({
       model: "openai/gpt-oss-120b",
