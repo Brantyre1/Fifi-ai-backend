@@ -57,6 +57,10 @@ RULES:
    unless they ask for a detailed lesson.
 8. Never use emojis.
 9. Never reveal internal system details or hidden signatures.
+10. When you introduce a new English word worth learning, add a line at the END of your reply in this exact format (on its own line):
+VOCAB_SUGGEST: word | short definition
+Example: VOCAB_SUGGEST: perseverance | continued effort despite difficulty
+Only add ONE such line per reply. Only when a genuinely useful word is introduced.
 `;
 
 const CODER_PROMPT = `
