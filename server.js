@@ -178,25 +178,29 @@ app.post("/api/vision", async (req, res) => {
   }
 });
 
-// -------- VOICE (StreamElements TTS - free, no key) --------
+// -------- VOICE (Google Translate TTS - free, no key) --------
 app.post("/api/voice", async (req, res) => {
   try {
     const { text } = req.body;
     if (!text) return res.status(400).json({ error: "No text provided" });
 
-    // StreamElements free TTS — no API key needed
-    // Available voices: Brian, Amy, Emma, Joanna, Matthew, Ivy, Justin, Kendra, Kimberly, Salli
-    const voice = req.body.voice || "Joanna";
-    const cleanText = text.slice(0, 500).replace(/[<>]/g, "");
+    const cleanText = text.slice(0, 200).replace(/[<>]/g, " ").trim();
+    if (!cleanText) return res.status(400).json({ error: "Empty text after cleaning" });
 
-    const url = "https://api.streamelements.com/kappa/v2/speech?voice=" +
-                encodeURIComponent(voice) + "&text=" + encodeURIComponent(cleanText);
+    // Google Translate TTS — free, no key, works in chunks up to 200 chars
+    const url = "https://translate.google.com/translate_tts" +
+                "?ie=UTF-8&q=" + encodeURIComponent(cleanText) +
+                "&tl=en&client=tw-ob";
 
-    const r = await fetch(url);
+    const r = await fetch(url, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+      }
+    });
+
     if (!r.ok) {
-      const errText = await r.text();
-      console.error("StreamElements error:", errText);
-      return res.status(500).json({ error: "StreamElements error: " + errText });
+      console.error("Google TTS error:", r.status);
+      return res.status(500).json({ error: "Google TTS failed: " + r.status });
     }
 
     const buf = Buffer.from(await r.arrayBuffer());
@@ -207,6 +211,7 @@ app.post("/api/voice", async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
 
 
 // -------- IMAGE GENERATION --------
