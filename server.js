@@ -178,33 +178,25 @@ app.post("/api/vision", async (req, res) => {
   }
 });
 
-// -------- VOICE (ElevenLabs TTS) --------
+// -------- VOICE (StreamElements TTS - free, no key) --------
 app.post("/api/voice", async (req, res) => {
   try {
     const { text } = req.body;
     if (!text) return res.status(400).json({ error: "No text provided" });
-    const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
-    const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || "21m00Tcm4TlvDq8ikWAM";
-    if (!ELEVEN_KEY) return res.status(500).json({ error: "ELEVENLABS_API_KEY not configured" });
 
-    const r = await fetch("https://api.elevenlabs.io/v1/text-to-speech/" + VOICE_ID, {
-      method: "POST",
-      headers: {
-        "xi-api-key": ELEVEN_KEY,
-        "Content-Type": "application/json",
-        "Accept": "audio/mpeg"
-      },
-      body: JSON.stringify({
-        text: text.slice(0, 1000),
-        model_id: "eleven_multilingual_v2",
-        voice_settings: { stability: 0.5, similarity_boost: 0.75, style: 0.3 }
-      })
-    });
+    // StreamElements free TTS — no API key needed
+    // Available voices: Brian, Amy, Emma, Joanna, Matthew, Ivy, Justin, Kendra, Kimberly, Salli
+    const voice = req.body.voice || "Joanna";
+    const cleanText = text.slice(0, 500).replace(/[<>]/g, "");
 
+    const url = "https://api.streamelements.com/kappa/v2/speech?voice=" +
+                encodeURIComponent(voice) + "&text=" + encodeURIComponent(cleanText);
+
+    const r = await fetch(url);
     if (!r.ok) {
       const errText = await r.text();
-      console.error("ElevenLabs error:", errText);
-      return res.status(500).json({ error: "ElevenLabs error: " + errText });
+      console.error("StreamElements error:", errText);
+      return res.status(500).json({ error: "StreamElements error: " + errText });
     }
 
     const buf = Buffer.from(await r.arrayBuffer());
@@ -215,6 +207,7 @@ app.post("/api/voice", async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 });
+
 
 // -------- IMAGE GENERATION --------
 app.post("/api/image", async (req, res) => {
