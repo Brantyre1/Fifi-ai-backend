@@ -106,6 +106,19 @@ RULES:
 
 
 
+// Multi-language support
+const LANGUAGE_NAMES = {
+  en: 'English',
+  sw: 'Swahili (Kiswahili)',
+  luo: 'Dholuo (the Luo language of Kenya)',
+  fr: 'French',
+  es: 'Spanish',
+  pt: 'Portuguese',
+  zh: 'Chinese (Simplified)',
+  ar: 'Arabic',
+  hi: 'Hindi'
+};
+
 app.get("/", (_, res) => res.send("Fifi AI is alive 🤖✨"));
 
 // -------- CHAT --------
@@ -119,7 +132,12 @@ app.post("/api/chat", async (req, res) => {
       kid: KID_PROMPT,
       pro: PRO_PROMPT
     };
-    const systemPrompt = prompts[mode] || SYSTEM_PROMPT;
+    let systemPrompt = prompts[mode] || SYSTEM_PROMPT;
+    const lang = req.body.lang || 'en';
+    const langName = LANGUAGE_NAMES[lang] || 'English';
+    if (lang !== 'en') {
+      systemPrompt += "\n\nLANGUAGE REQUIREMENT: Reply ONLY in " + langName + ". Every word must be in " + langName + ".";
+    }
     const completion = await groq.chat.completions.create({
       model: "openai/gpt-oss-120b",
       messages: [{ role: "system", content: systemPrompt }, ...messages],
