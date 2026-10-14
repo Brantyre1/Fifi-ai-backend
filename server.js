@@ -137,6 +137,9 @@ app.post("/api/chat", async (req, res) => {
     const langName = LANGUAGE_NAMES[lang] || 'English';
     if (lang !== 'en') {
       systemPrompt += "\n\nLANGUAGE REQUIREMENT: Reply ONLY in " + langName + ". Every word must be in " + langName + ".";
+      if (lang === 'luo') {
+        systemPrompt += "\n\nHONESTY RULE FOR DHOLUO: You have limited training data on Dholuo. If you are not certain of the correct Dholuo word or phrase, respond with: 'I am not certain of the correct Dholuo for this. Here is what I know: [limited answer in English].' Do NOT invent Dholuo words or produce gibberish. It is better to admit uncertainty than to make up words.";
+      }
     }
     const completion = await groq.chat.completions.create({
       model: "openai/gpt-oss-120b",
