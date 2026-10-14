@@ -178,6 +178,44 @@ app.post("/api/vision", async (req, res) => {
   }
 });
 
+// -------- VOICE (ElevenLabs TTS) --------
+app.post("/api/voice", async (req, res) => {
+  try {
+    const { text } = req.body;
+    if (!text) return res.status(400).json({ error: "No text provided" });
+    const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
+    const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || "21m00Tcm4TlvDq8ikWAM";
+    if (!ELEVEN_KEY) return res.status(500).json({ error: "ELEVENLABS_API_KEY not configured" });
+
+    const r = await fetch("https://api.elevenlabs.io/v1/text-to-speech/" + VOICE_ID, {
+      method: "POST",
+      headers: {
+        "xi-api-key": ELEVEN_KEY,
+        "Content-Type": "application/json",
+        "Accept": "audio/mpeg"
+      },
+      body: JSON.stringify({
+        text: text.slice(0, 1000),
+        model_id: "eleven_multilingual_v2",
+        voice_settings: { stability: 0.5, similarity_boost: 0.75, style: 0.3 }
+      })
+    });
+
+    if (!r.ok) {
+      const errText = await r.text();
+      console.error("ElevenLabs error:", errText);
+      return res.status(500).json({ error: "ElevenLabs error: " + errText });
+    }
+
+    const buf = Buffer.from(await r.arrayBuffer());
+    res.set("Content-Type", "audio/mpeg");
+    res.send(buf);
+  } catch (e) {
+    console.error("Voice error:", e);
+    res.status(500).json({ error: e.message });
+  }
+});
+
 // -------- IMAGE GENERATION --------
 app.post("/api/image", async (req, res) => {
   try {
