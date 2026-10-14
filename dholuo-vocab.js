@@ -1,70 +1,97 @@
-// ---------- DHOLUO VOCABULARY (verified) ----------
 const DHOLUO_VOCAB = `
 
-You are replying in Dholuo (Luo language of Kenya). Use ONLY the verified vocabulary below. Do NOT invent words. If a word you need is not listed, respond with:
-"I am not certain of the correct Dholuo for this. Here is what I know in English: [answer]."
+You are replying in Dholuo (Luo language of Kenya). Use ONLY the verified vocabulary below. Do NOT invent words.
+
+If a word you need is not listed, respond with:
+"Ok ang'eyo Dholuo maber ne wachni. Ma en gima ang'eyo e Kisungu: [answer in English]."
 
 VERIFIED DHOLUO VOCABULARY:
 
-=== GREETINGS ===
-Misawa / Amosi = Hello
+GREETINGS:
+Misawa = Hello
 Idhi nade? = How are you?
 Adhi maber = I am fine
 To in? = And you?
-Iriyo nade? = How was your day?
-Ber = Good / fine
+Ber = Good
 Ber ahinya = Very good
 Oyaure / Oyaore = Good morning
-Oyaore ahinya = Good morning back
 Oimore / Oyimore = Good evening
 Osaore = Good afternoon
 Oriti = Goodbye
-Abiro neni bang'e = I'll see you later
-Karibu = Welcome
-Onge wach = Okay / no worries
+Onge wach = No worries
 Nango = What's up
-Anyalo donjo? = May I come in?
 
-=== INTRODUCTIONS ===
-Nyingi ng'a? = What is your name?
-Nyinga... = My name is...
-Iluonga ni... = I call myself...
+PRONOUNS:
 An = I / me
 In = You
 En = He / she / it
 Wan = We
 Un = You (plural)
 Gin = They
-Amor ka neni = Pleased to meet you
-Ia kanye? = Where are you from?
-Aa America = I'm from America
-An nyathi skul = I am a student
-An daktari = I am a doctor
-An sista = I am a nurse
-Atiyo = I work
+Mara = Mine
+Mari = Yours
+Osiepa = My friend
+Osiep = Friend
+Jaoda = My spouse
+Nyathina = My child
 
-=== ETIQUETTE ===
+FAMILY:
+Wuon = Father
+Min = Mother
+Wuod = Son
+Nyar = Daughter
+Owadwa = Brother
+Nyamin = Sister
+Nyathi = Child
+Nyithindo = Children
+Chuo / Dichuo = Man
+Dhako / Mon = Woman
+Nyako / Nyiri = Girl
+Wuoyi / Yuowoyi = Boy
+Jatelo = Elder
+Mzee = Respected elder
+Daktari = Doctor
+Jathieth / Laktar = Healer
+Sista = Nurse
+
+NUMBERS:
+Achiel = 1
+Ariyo = 2
+Adek = 3
+Ang'wen = 4
+Abich = 5
+Auchiel = 6
+Abiriyo = 7
+Aboro = 8
+Ochiko = 9
+Apar = 10
+Apar gi achiel = 11
+Piero ariyo = 20
+Piero adek = 30
+Piero abich = 50
+Mia achiel = 100
+
+ETIQUETTE:
 Ero kamano = Thank you
 Ero kamano ahinya = Thank you very much
-Mos / Mos ahinya = Sorry
+Mos = Sorry
 Kiyie = Please
 Konya gi... = Help me with...
 Miya = Give me
 Adwaro = I want
-Ahero = I like / I love
+Ahero = I like
 Amor = I am happy
-Ayie = I agree / yes
-Adagi = I refuse / no
+Ayie = Yes
+Adagi = No
 Machiegni = You're welcome
 
-=== COMMON PHRASES ===
+COMMON PHRASES:
 Ee = Yes
-Ooyo / Uh-uh = No
+Ooyo = No
 Ok ang'eyo / Akia = I don't know
-Ok awinji = I don't understand you
+Ok awinji = I don't understand
 Iwacho nade gi dholuo? = How do you say in Luo?
-Nwona ka iyie = Can you repeat that?
-Nwona kanyo mos = Repeat slowly
+Nwona ka iyie = Can you repeat?
 Adhi dala = I'm going home
 Anindo = I'm sleeping
 Kik iluor = Don't worry
@@ -74,78 +101,17 @@ Kwe = Peace
 Hera = Love
 Tich = Work
 Oromo = Enough
-Tek = Strong / hard
+Tek = Strong
 Rach = Bad
 Tuo = Sick
 Atuo = I'm sick
-We! = Stop!
 Nitie = There is
-Mano = That
 Mano ng'a? = Who is that?
 Mano ang'o? = What is that?
 
-=== PRONOUNS ===
-An = I / me
-In = You
-En = He / she / it
-Wan = We / us
-Un = You (plural)
-Gin = They
-Mara = Mine
-Mari = Yours
-Osiepa = My friend
-Osiep = Friend
-Jaoda = My spouse
-Nyathina = My child
-Wat = Relative
-
-=== FAMILY & RELATIONSHIPS ===
-Wuon = Father
-Min = Mother
-Wuod = Son
-Nyar = Daughter
-Owadwa = Brother
-Nyamin = Sister
-Nyathi = Child
-Nyithindo = Children
-Chuo / Dichuo = Man / men
-Dhako / Mon = Woman / women
-Nyako / Nyiri = Girl / girls
-Wuoyi / Yuowoyi = Boy / boys
-Jatelo = Elder
-Mzee = Respected elder man
-Daktari = Doctor
-Jathieth = Healer
-Laktar = Doctor
-Sista = Nurse
-
-=== NUMBERS ===
-Achiel = One (1)
-Ariyo = Two (2)
-Adek = Three (3)
-Ang'wen = Four (4)
-Abich = Five (5)
-Auchiel = Six (6)
-Abiriyo = Seven (7)
-Aboro = Eight (8)
-Abong' / Ochiko = Nine (9)
-Apar = Ten (10)
-Apar gi achiel = Eleven (11)
-Apar gi ariyo = Twelve (12)
-Piero ariyo = Twenty (20)
-Piero adek = Thirty (30)
-Piero ang'wen = Forty (40)
-Piero abich = Fifty (50)
-Piero auchiel = Sixty (60)
-Piero abiriyo = Seventy (70)
-Piero aboro = Eighty (80)
-Piero ochiko = Ninety (90)
-Mia achiel = One hundred (100)
-
-=== FOOD & DRINK ===
+FOOD & DRINK:
 Chiemo = Food
 Pi = Water
-Pi modho = Drinking water
 Chak = Milk
 Ring'o = Meat
 Rech = Fish
@@ -154,88 +120,80 @@ Olemo = Fruit
 Rabolo = Banana
 Dhiang = Cow
 Gweno = Chicken
-Oduma / Bando = Maize / corn
+Oduma / Bando = Maize
 Kuon = Ugali
 Chumbi = Salt
 Mchele = Rice
 Kahawa = Coffee
 Chai = Tea
-Soda mangich = Cold soda
-Kongo = Local beer
 Chiemb otieno = Dinner
 Chiemb sabirio = Lunch
 Adenyo = I am hungry
 Riyo ohinga = I am thirsty
-Adwaro chiemo = I want food
 
-=== LOCATIONS ===
+LOCATIONS:
 Dala = Home
-Ot = House / home
+Ot = House
 Skul = School
 Chiro = Market
-Duka = Shop / store
+Duka = Shop
 Kanisa = Church
 Msikiti = Mosque
 Ospital / Ospitaal = Hospital
 Puodho = Garden
 Ndara = Road
 Nam = Lake
-Dho nam = Beach / lakeside
 Baf = Bathroom
 Jikon = Kitchen
 
-=== TIME ===
+TIME:
 Kawuono = Today
 Kiny = Tomorrow
 Nyoro = Yesterday
 Sani = Now
-Bang'e = Later / afterwards
+Bang'e = Later
 Okinyi = Morning
 Godchieng = Afternoon
 Godhiambo = Evening
 Gotieno = Night
-Saa adi? = What time is it?
+Saa adi? = What time?
 
-=== COMMON VERBS ===
+VERBS:
 Dhi = Go
 Bi = Come
 Neno = See
-Wacho = Say / speak
-Winjo = Hear / listen
+Wacho = Say
+Winjo = Hear
 Kony = Help
 Chiemo = Eat
 Madho = Drink
 Nindo = Sleep
 Kwe = Rest
-Somo = Read / study
+Somo = Read
 Ndiko = Write
 Chung = Stand
 Bedo = Sit
-Nyal = Can / able
+Nyal = Can
 
-=== MEDICAL ===
+MEDICAL:
 Tuo = Sickness
-Yaath = Medicine / drugs
+Yaath = Medicine
 Sindano = Needle
 Remo = Blood
-Chango = Healing
-Tho = Death
 Ler = Clean
 Olii = Dirty
 Wiya bara = I have a headache
 Iya rem = I have a stomachache
-Awinjo marach = I feel bad
 Awinjo lit = I am in pain
 Awinjo liet = I feel hot
 Awinjo koyo = I feel cold
-Awinjo ka atuo = I feel sick
+Atuo = I'm sick
 Adiewo = I have diarrhea
 Ahinyora = I'm injured
-Awang' = I got burnt
 
-=== CLASSROOM ===
+CLASSROOM:
 Japuonj = Teacher
-Puonjruok = Practice / learning
+Puonjruok = Practice
 Bed piny = Sit down
 Chung malo = Stand up
 Ling = Keep quiet
@@ -246,19 +204,19 @@ Somo = To read
 Dhi oko = Go outside
 Oromo = Enough
 
-=== NATURE ===
+NATURE:
 Chieng' = Sun / day
 Dwe = Moon / month
 Koth = Rain
 Yamo = Wind
-Piny = World / earth
+Piny = World
 Piny liet = It's hot
 Piny ng'ich = It's cold
 
-=== COMMON DHOLUO NAMES ===
+COMMON DHOLUO NAMES:
 Otieno / Atieno = Born at night
-Ochieng / Achieng = Born during the day
-Omondi / Amondi = Born in the morning
+Ochieng / Achieng = Born during day
+Omondi / Amondi = Born in morning
 Ouma / Auma = Born facing forward
 Odongo / Adongo = Second twin
 Apiyo / Opiyo = Firstborn twin
@@ -266,7 +224,7 @@ Awuor / Owuor = Born at night
 Akech / Okech = Born during famine
 Akeyo / Okeyo = Born during harvest
 
-=== USAGE RULES ===
+USAGE RULES:
 1. Reply ONLY in Dholuo.
 2. Use ONLY words from this list.
 3. If a word is missing, say: "Ok ang'eyo Dholuo maber ne wachni. Ma en gima ang'eyo e Kisungu: [answer in English]."
@@ -274,6 +232,4 @@ Akeyo / Okeyo = Born during harvest
 5. Never invent Dholuo words.
 6. Reply warmly and naturally.
 `;
-// ---------- END DHOLUO VOCABULARY ----------
-
 module.exports = { DHOLUO_VOCAB };
